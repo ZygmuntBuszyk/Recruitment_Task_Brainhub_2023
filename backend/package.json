@@ -10,7 +10,7 @@
     "dev:test": "jest --watch --coverage --verbose",
     "test": "jest --detectOpenHandles --forceExit --verbose",
     "test:integration": "npm test -- --config=test/jest.config.ts --runInBand",
-    "test:integration:api": "npm run test:integration -- --testPathPattern=./src/test/integration",
+    "test:integration:api": "npm run test:integration -- --testPathPattern=./src/test/integration"
   },
   "author": "Zygmunt Buszyk",
   "license": "ISC",
