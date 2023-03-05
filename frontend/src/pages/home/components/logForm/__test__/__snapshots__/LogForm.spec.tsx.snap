@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogForm renders correctly 1`] = `
+<form
+  className="ant-form ant-form-vertical ant-form-hide-required-mark css-dev-only-do-not-override-10ed4xt form"
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="ant-form-item form__item css-dev-only-do-not-override-10ed4xt"
+  >
+    <div
+      className="ant-row ant-form-item-row css-dev-only-do-not-override-10ed4xt"
+      style={{}}
+    >
+      <div
+        className="ant-col ant-form-item-label css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="name"
+          title="NAME"
+        >
+          NAME
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <div
+          className="ant-form-item-control-input"
+        >
+          <div
+            className="ant-form-item-control-input-content"
+          >
+            <span
+              className="ant-input-affix-wrapper form__item-input ant-input-affix-wrapper-has-feedback css-dev-only-do-not-override-10ed4xt"
+              onClick={[Function]}
+            >
+              <input
+                aria-required="true"
+                className="ant-input css-dev-only-do-not-override-10ed4xt"
+                data-testid="logForm.nameInput"
+                disabled={false}
+                hidden={null}
+                id="name"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Enter your Name"
+                style={null}
+                type="text"
+                value=""
+              />
+              <span
+                className="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ant-form-item form__item css-dev-only-do-not-override-10ed4xt"
+  >
+    <div
+      className="ant-row ant-form-item-row css-dev-only-do-not-override-10ed4xt"
+      style={{}}
+    >
+      <div
+        className="ant-col ant-form-item-label css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="email"
+          title="EMAIL"
+        >
+          EMAIL
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <div
+          className="ant-form-item-control-input"
+        >
+          <div
+            className="ant-form-item-control-input-content"
+          >
+            <span
+              className="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback css-dev-only-do-not-override-10ed4xt"
+              onClick={[Function]}
+            >
+              <input
+                aria-required="true"
+                className="ant-input css-dev-only-do-not-override-10ed4xt"
+                data-testid="logForm.emailInput"
+                disabled={false}
+                hidden={null}
+                id="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Enter your email"
+                style={null}
+                type="text"
+                value=""
+              />
+              <span
+                className="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ant-form-item form__item css-dev-only-do-not-override-10ed4xt"
+  >
+    <div
+      className="ant-row ant-form-item-row css-dev-only-do-not-override-10ed4xt"
+      style={{}}
+    >
+      <div
+        className="ant-col ant-form-item-label css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <label
+          className="ant-form-item-required"
+          htmlFor="log"
+          title="LOG"
+        >
+          LOG
+        </label>
+      </div>
+      <div
+        className="ant-col ant-form-item-control css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <div
+          className="ant-form-item-control-input"
+        >
+          <div
+            className="ant-form-item-control-input-content"
+          >
+            <textarea
+              aria-required="true"
+              data-testid="logForm.textarea"
+              disabled={false}
+              id="log"
+              onChange={[Function]}
+              placeholder="Enter your log"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ant-form-item form__item css-dev-only-do-not-override-10ed4xt"
+  >
+    <div
+      className="ant-row ant-form-item-row css-dev-only-do-not-override-10ed4xt"
+      style={{}}
+    >
+      <div
+        className="ant-col ant-form-item-control css-dev-only-do-not-override-10ed4xt"
+        style={{}}
+      >
+        <div
+          className="ant-form-item-control-input"
+        >
+          <div
+            className="ant-form-item-control-input-content"
+          >
+            <button
+              className="ant-btn css-dev-only-do-not-override-10ed4xt ant-btn-primary"
+              data-testid="logForm.submitButton"
+              disabled={false}
+              onClick={[Function]}
+              type="submit"
+            >
+              <span>
+                Process Log
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
