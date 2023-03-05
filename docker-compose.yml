@@ -18,16 +18,17 @@ services:
       - "5000:5000"
     container_name: task-backend
     restart: always
-
+    links:
+      - db
   #   Create database container
   db:
     container_name: task-mysql
     image: mysql
     restart: always
     ports:
-      - "3306:3306"
+      - "3329:3329"
     environment:
-      MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: recruitment_database
+      #      MYSQL_USER: root

@@ -8,9 +8,9 @@
     "dev": "nodemon ./src/index.ts",
     "start": "npm run build && ts-node ./build/index.js",
     "dev:test": "jest --watch --coverage --verbose",
+    "test": "jest --detectOpenHandles --forceExit --verbose",
     "test:integration": "npm test -- --config=test/jest.config.ts --runInBand",
     "test:integration:api": "npm run test:integration -- --testPathPattern=./src/test/integration",
-    "dev:test:unit": "npm test -- --coverage --testPathPattern=__test__"
   },
   "author": "Zygmunt Buszyk",
   "license": "ISC",

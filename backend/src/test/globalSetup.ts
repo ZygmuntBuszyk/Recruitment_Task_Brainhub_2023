@@ -6,5 +6,5 @@ module.exports = async () => {
 
 	const mySqlInstance = new MySQLDatabaseHelper(config.TEST_DATABASE_URL!, config.TEST_DATABASE_NAME!);
 
-	await mySqlInstance.onInit();
+	await mySqlInstance.onTestInit();
 };
