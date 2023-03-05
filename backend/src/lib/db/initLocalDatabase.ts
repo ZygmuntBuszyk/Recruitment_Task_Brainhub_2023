@@ -4,7 +4,7 @@ import config from '../../config';
 export async function InitDatabase() {
 	try {
 		console.info(`→ Initiating Mysql Database`);
-
+		console.info(config.DATABASE_URL!, config.DATABASE_NAME!);
 		const mySqlInstance = new MySQLDatabaseHelper(config.DATABASE_URL!, config.DATABASE_NAME!);
 
 		await mySqlInstance.onInit();

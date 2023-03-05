@@ -20,7 +20,10 @@ app.use(express.json());
 app.use(errors());
 
 (async function () {
-	await InitDatabase();
+	if (config.NODE_ENV !== 'test') {
+		await InitDatabase();
+	}
+
 	await bootstrapModules(app);
 
 	app.listen(config.PORT, () => {

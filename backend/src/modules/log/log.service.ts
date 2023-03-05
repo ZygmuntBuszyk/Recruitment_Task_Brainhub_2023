@@ -1,6 +1,8 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import { DatabaseTable, useStore } from '../../lib/db/datastore';
 import * as uuid from 'uuid';
+import { RequestException } from '../../lib/RequestException';
+import { HttpStatusCode } from '../../types/HttpStatusCode';
 
 enum LogType {
 	WARNING = 'W',
@@ -19,25 +21,39 @@ export const relevantSeverinityNumber: number = 50;
 export const getRelevantSevernityNumber = (severity: number) => severity >= relevantSeverinityNumber;
 
 export const getRelevantLines = (processedLog: string): string => {
-	const processedLogLines: string[] = processedLog.split('\n');
+	try {
+		const processedLogLines: string[] = processedLog.split('\n');
 
-	const errorLines = processedLogLines.filter(line => line.startsWith(LogType.ERROR));
+		const errorLines = processedLogLines.filter(line => line.startsWith(LogType.ERROR));
 
-	const filteredErrorLines = errorLines.filter(line => {
-		const severity = parseInt(line.split(' ')[2]);
+		const filteredErrorLines = errorLines.filter(line => {
+			const severity = parseInt(line.split(' ')[2]);
 
-		return getRelevantSevernityNumber(severity);
-	});
+			return getRelevantSevernityNumber(severity);
+		});
 
-	return filteredErrorLines.join('\n');
+		return filteredErrorLines.join('\n');
+	} catch (e) {
+		throw new RequestException({
+			message: `There was a problem while parsing the relevant lines.`,
+			status: HttpStatusCode.INTERNAL_SERVER_ERROR
+		});
+	}
 };
 
 export const processTheLog = (log: string) => {
-	const filteredLines = getFilteredLines(log);
+	try {
+		const filteredLines = getFilteredLines(log);
 
-	const sortedLines = sortByAscendingOrder(filteredLines);
+		const sortedLines = sortByAscendingOrder(filteredLines);
 
-	return sortedLines.join('\n');
+		return sortedLines.join('\n');
+	} catch (e) {
+		throw new RequestException({
+			message: `There was a problem while processing the Log.`,
+			status: HttpStatusCode.INTERNAL_SERVER_ERROR
+		});
+	}
 };
 
 export const saveLogData = async (logData: ILogRequest): Promise<void> => {

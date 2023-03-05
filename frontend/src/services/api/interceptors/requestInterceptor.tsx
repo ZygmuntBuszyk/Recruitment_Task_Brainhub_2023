@@ -14,23 +14,25 @@ const responseInterceptor = () => {
 
 			return Promise.resolve(response);
 		},
-		(error: AxiosError) => {
+		(error: AxiosError & { response?: { data?: { error: string } } }) => {
+			const errorMessage: string | undefined = error.response?.data?.error;
+
 			switch (error?.response?.status) {
 				case 500:
 					message.error({
-						content: 'Server error, there is something wrong with your requested operation.',
+						content: errorMessage || 'Server error, there is something wrong with your requested operation.',
 						icon: <Image src={require('../../../assets/icons/error.svg')} alt='error' />
 					});
 					break;
 				case 400:
 					message.error({
-						content: 'Bad request. Malformed request syntax',
+						content: errorMessage || 'Bad request. Malformed request syntax',
 						icon: <Image src={require('../../../assets/icons/error.svg')} alt='error' />
 					});
 					break;
 				default:
 					message.error({
-						content: error.message,
+						content: errorMessage || error.message,
 						icon: <img src={require('../../../assets/icons/error.svg')} alt='error' />
 					});
 					break;

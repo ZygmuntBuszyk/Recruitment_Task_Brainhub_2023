@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Home.module.scss';
 import MainLayout from '@/layout/MainLayout';
 import LogForm from '@/pages/home/components/logForm/LogForm';
