@@ -17,7 +17,11 @@ export class MySQLDatabaseHelper implements IDatabaseHelper {
 	}
 
 	public async onInit() {
-		await this.dropTestDatabase();
+		await this.createDatabase();
+	}
+
+	public async onTestInit() {
+		await this.dropDatabase();
 		await this.createDatabase();
 	}
 
@@ -31,6 +35,12 @@ export class MySQLDatabaseHelper implements IDatabaseHelper {
 		return this._connection;
 	}
 
+	private failOnDev() {
+		if (this._databaseName === config.DATABASE_NAME) {
+			throw new Error('This operation cannot be run in development/prod lol');
+		}
+	}
+
 	private async createDatabase() {
 		console.debug('→ Creating MySQL database...');
 
@@ -40,9 +50,9 @@ export class MySQLDatabaseHelper implements IDatabaseHelper {
 
 		console.debug('✔︎ Connected to MySQL');
 
-		await connectionToMySQLHost.execute(`CREATE DATABASE IF NOT EXISTS ${config.DATABASE_NAME}`);
+		await connectionToMySQLHost.execute(`CREATE DATABASE IF NOT EXISTS ${this._databaseName}`);
 
-		console.debug(`✔︎ Database created: "${config.DATABASE_NAME}"`);
+		console.debug(`✔︎ Database created: "${this._databaseName}"`);
 
 		await connectionToMySQLHost.end();
 		const connectionToMySQLHostDatabase = await mysql.createConnection({
@@ -51,20 +61,26 @@ export class MySQLDatabaseHelper implements IDatabaseHelper {
 
 		console.debug('✔︎ Test database selected');
 
-		const schema = fs
-			.readFileSync('./database/schema.sql', 'utf8')
-			.split(/^\n/gm)
-			.filter(statement => statement.trim());
-		const schemaStatementPromises = schema.map((statement: string) => connectionToMySQLHostDatabase.execute(statement));
-		await Promise.all(schemaStatementPromises);
-		await connectionToMySQLHostDatabase.destroy();
+		const schema = fs.readFileSync('./src/lib/db/schema.sql', 'utf8').trim();
 
-		console.debug('✔︎ Schema created');
+		try {
+			console.debug(`→ Initiating database Schemas`);
+			await connectionToMySQLHostDatabase.execute(schema);
+
+			console.debug('✔︎ Schema was created');
+		} catch (e) {
+			console.debug(`⚠️ There was a problem while create a schema `);
+			throw e;
+		}
+
+		await connectionToMySQLHostDatabase.destroy();
 		console.debug('✔︎ MySQL setup completed!', '\n');
 	}
 
-	private async dropTestDatabase() {
-		console.debug('→ Dropping MySQL test database...');
+	private async dropDatabase() {
+		this.failOnDev();
+
+		console.debug('→ Dropping MySQL database...');
 
 		try {
 			const conn = await this.getDatabaseConnection();

@@ -28,5 +28,6 @@ app.use(errors());
 	});
 })().catch(e => {
 	console.error('Server error');
+	console.error(e);
 	process.exit(1);
 });

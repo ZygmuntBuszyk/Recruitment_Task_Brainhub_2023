@@ -98,7 +98,7 @@ export function useStore(): DataStore {
 		connection = null;
 	}
 
-	// for status
+	// TODO for status
 	async function testConnection() {
 		const conn = await getConnection();
 		conn.release();
@@ -121,11 +121,12 @@ export async function write(
 	const { name, email, log } = values;
 	const connection = typeof connectionGetter === 'function' ? await connectionGetter() : connectionGetter;
 
-	const [rows] = await connection!.execute<DataStoreLogRecord[]>(`REPLACE INTO ${table} (id, name, email, log) VALUES (?, ?)`, [
+	const [rows] = await connection!.execute<DataStoreLogRecord[]>(`REPLACE INTO ${table} (id, name, email, log) VALUES (?, ?, ?, ?)`, [
 		id,
 		name,
 		email,
 		log
 	]);
+
 	return rows;
 }

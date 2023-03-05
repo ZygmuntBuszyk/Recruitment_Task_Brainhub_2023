@@ -19,6 +19,6 @@ export async function bootstrapModules(app: Express) {
 		console.info(`→ Attaching router to path "${path}"... `);
 		await app.use(path, router);
 
-		console.info(`→ SUCCESS`);
+		console.info(`→ SUCCESS → Bootstraping modules was completed.`);
 	}
 }

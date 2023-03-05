@@ -42,14 +42,15 @@ export const processTheLog = (log: string) => {
 
 export const saveLogData = async (logData: ILogRequest): Promise<void> => {
 	try {
+		console.info(`→ Saving log data to the database`);
 		const store = await useStore();
+
 		const table = store.table<ILogRequest>(DatabaseTable.LOG);
+
 		const id = uuid.v4();
+
 		await table.write(id, logData);
-		// return {
-		// 	statusCode: 201,
-		// 	body: {}
-		// };
+		console.info(`→ Log record was successfully saved in the database.} `);
 	} catch (e) {
 		console.info(`→ Failed to save log data in the database`);
 		console.error(e);

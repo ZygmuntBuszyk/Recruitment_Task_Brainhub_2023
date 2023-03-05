@@ -18,8 +18,7 @@ services:
       - "5000:5000"
     container_name: task-backend
     restart: always
-    links:
-      - db
+
   #   Create database container
   db:
     container_name: task-mysql

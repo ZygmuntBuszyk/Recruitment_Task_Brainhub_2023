@@ -28,4 +28,6 @@ describe('ProcessedLog', function () {
 			'font-family': 'monospace'
 		});
 	});
+
+	// TODO test check for the log to be in each and own line.
 });

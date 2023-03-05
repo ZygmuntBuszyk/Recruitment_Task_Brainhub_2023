@@ -17,8 +17,10 @@ function ProcessedLog({ log }: IProcessedLogProps) {
 	return (
 		<div className={styles.main}>
 			<div data-testid='processedLog.log' className={styles['main-inner']}>
-				{lines.map(line => (
-					<div className={styles['main-inner__error_line']}>{line}</div>
+				{lines.map((line, key) => (
+					<span key={key} className={styles['main-inner__error_line']}>
+						{line}
+					</span>
 				))}
 			</div>
 		</div>
