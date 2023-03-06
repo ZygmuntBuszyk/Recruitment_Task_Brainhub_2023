@@ -1,7 +1,6 @@
 # Recruitment Task Frontend
 #### Next + jest unit test + cypress (will fill them in free time)
 
->> The build 
 
 ## Startup
 ### `npm run dev`
