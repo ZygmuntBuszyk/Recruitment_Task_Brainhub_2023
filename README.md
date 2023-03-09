@@ -1,7 +1,7 @@
 # Brainhub Recruitment Task
 #### Node, Mysql, Next
 
->>>Until I fix docker builds, please use Dev ways. Sorry for inconvenience
+>>>Until I fix db ports issue, please use Dev ways. Sorry for inconvenience
 
 ## Startup
 ### /frontend :3000
