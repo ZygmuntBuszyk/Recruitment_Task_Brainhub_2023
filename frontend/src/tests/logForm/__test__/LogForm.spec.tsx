@@ -1,5 +1,5 @@
 import React from 'react';
-import LogForm from '../LogForm';
+import LogForm from '../../../pages/home/components/logForm/LogForm';
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
 import { fireEvent, render, waitFor } from '@testing-library/react';

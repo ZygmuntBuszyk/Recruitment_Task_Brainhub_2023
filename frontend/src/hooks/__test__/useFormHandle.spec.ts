@@ -1,6 +1,6 @@
 import { ILogRequest } from '@/services/api/apiModels/log';
 import React from 'react';
-import useFormHandle from '@/pages/home/hooks/useFormHandle';
+import useFormHandle from '@/hooks/useFormHandle';
 
 describe('useFormHandle', function () {
 	const setStateMock = jest.fn();

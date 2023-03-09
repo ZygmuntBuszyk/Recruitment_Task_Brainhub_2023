@@ -11,6 +11,7 @@ RUN npm install
 # Copy our app
 COPY . .
 # Expose port to access server
+ENV NODE_ENV=test
 EXPOSE 5000
 # Command to run our app
-CMD [ "npm", "dev"]
+CMD [ "npm", "run" ,"dev"]

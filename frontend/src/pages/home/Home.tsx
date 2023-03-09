@@ -3,7 +3,7 @@ import styles from './Home.module.scss';
 import MainLayout from '@/layout/MainLayout';
 import LogForm from '@/pages/home/components/logForm/LogForm';
 import ProcessedLog from '@/pages/home/components/processedLog/ProcessedLog';
-import useFormHandle from '@/pages/home/hooks/useFormHandle';
+import useFormHandle from '@/hooks/useFormHandle';
 
 function Home() {
 	const [onSubmit, log, isLoading] = useFormHandle();

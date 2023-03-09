@@ -27,7 +27,7 @@ export const getRelevantLines = (processedLog: string): string => {
 		const errorLines = processedLogLines.filter(line => line.startsWith(LogType.ERROR));
 
 		const filteredErrorLines = errorLines.filter(line => {
-			const severity = parseInt(line.split(' ')[2]);
+			const severity = parseInt(line.split(' ')[1]);
 
 			return getRelevantSevernityNumber(severity);
 		});
