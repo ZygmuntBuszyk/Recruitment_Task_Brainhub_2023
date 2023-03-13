@@ -2,8 +2,19 @@
 version: "3.1"
 
 services:
+  db:
+    container_name: task-mysql
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: recruitment_database
+
   frontend:
-    #   Create frontend container
     build: ./frontend
     ports:
       - "3000:3000"
@@ -12,7 +23,8 @@ services:
     links:
       - backend
   backend:
-    # Create backend container
+    depends_on:
+      - db
     build: ./backend
     ports:
       - "5000:5000"
@@ -20,15 +32,3 @@ services:
     restart: always
     links:
       - db
-  #   Create database container
-  db:
-    container_name: task-mysql
-    image: mysql
-    restart: always
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: recruitment_database
-      #      MYSQL_USER: root

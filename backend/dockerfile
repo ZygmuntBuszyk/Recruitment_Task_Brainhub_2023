@@ -8,10 +8,11 @@ WORKDIR /usr/src/recruitment-app/backend
 # Copy package json and install dependencies
 COPY package*.json ./
 RUN npm install
-# Copy our app
+# Copy app
 COPY . .
 # Expose port to access server
-ENV NODE_ENV=test
 EXPOSE 5000
+# Mysql container is exposed on port 3306
+ENV DATABASE_URL "mysql://test:test@db:3306"
 # Command to run our app
 CMD [ "npm", "run" ,"dev"]
