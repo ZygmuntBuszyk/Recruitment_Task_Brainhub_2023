@@ -1,6 +1,7 @@
 # Backend part of Recruitment Task
 #### Node server (with configured Typescript) 
-#### Mysql for database
+#### Mysql for database 
+#### In the future logs should be changed to some Logger eg. datadog.
 
 ## Startup
 *Without docker
@@ -9,11 +10,11 @@
 dev (watch)
 ### `npm run dev`
 
-## Tests
+## Tests (Not done yet, A LOT to cover there will do them in free time. For now please check frontend's tests instead) 
 ### `npm run "dev:test`
     "dev:test": "jest --watch --coverage --verbose",
 
-### Integration
+### Integration (Not done yet, A LOT to cover there will do them in free time) 
 Supertest
 ### `npm run dev:test:integration`
     "dev:test:integration": "yarn test -- --config=test/jest.config.ts --runInBand"
@@ -22,6 +23,3 @@ Supertest
 Jest
 ### `npm run dev:test`
     "dev:test": "jest --watch --coverage --verbose",
-
-### Database
-Project is using custom configuration for local mysql that connects to port '127.0.0.1'.
