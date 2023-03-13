@@ -1,9 +1,11 @@
 # Brainhub Recruitment Task
 #### Node, Mysql, Next
 
->>>Until I fix db ports issue, please use Dev ways. Sorry for inconvenience
+### Application is dockerized
+### `docker-compose up --build`
 
-## Startup
+#### But can also work with manual startup: 
+### Startup
 ### /frontend :3000
 ### `npm run dev`
 
