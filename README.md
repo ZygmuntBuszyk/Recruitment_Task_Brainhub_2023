@@ -25,14 +25,14 @@ Form
 ## Log
 The log can have any number of lines. Each line begins with either E for
 errors, W for warnings and I for informational messages. Error messages
-then have a number indicating the severity of the error, between 1 and
-100. All types of messages then have an integer timestamp and a textual
+then have a number indicating the severity of the error, between 1 and 100. 
+All types of messages then have an integer timestamp and a textual
 content which runs until the end of the line. Here are a few valid lines:
 
-I 6 Nothing to report
-W 7 Out for lunch
-E 42 21 ERROR: Something has gone horribly wrong
-I 52 Something went wrong while I was out for lunch
+- I 6 Nothing to report
+- W 7 Out for lunch
+- E 42 21 ERROR: Something has gone horribly wrong
+- I 52 Something went wrong while I was out for lunch
 
 A ᴘʀᴏᴄᴇꜱꜱᴇᴅ ʟᴏɢ only has lines which conform to the template
 described above (other lines are discarded) and is sorted with the
